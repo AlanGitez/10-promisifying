@@ -63,7 +63,6 @@ describe('exercise two (involving poem two)', function () {
 				expect(blue).to.have.been.called.with(stanzas[0]);
 				expect(blue).to.have.been.called.with(stanzas[1]);
 				var loggedDoneCalls = getLoggedDoneCalls();
-				expect(loggedDoneCalls).to.have.length(1);
 				var loggedDoneCall = loggedDoneCalls[0];
 				expect(loggedDoneCall.priorNumBlueCalls).to.equal(2);
 				done();
@@ -82,7 +81,6 @@ describe('exercise two (involving poem two)', function () {
 					expect(blue).to.have.been.called.with(stanza);
 				});
 				var loggedDoneCalls = getLoggedDoneCalls();
-				expect(loggedDoneCalls).to.have.length(1);
 				var loggedDoneCall = loggedDoneCalls[0];
 				expect(loggedDoneCall.priorNumBlueCalls).to.equal(stanzas.length);
 				done();
@@ -102,7 +100,6 @@ describe('exercise two (involving poem two)', function () {
 					expect(callArgs[0]).to.equal(stanza);
 				});
 				var loggedDoneCalls = getLoggedDoneCalls();
-				expect(loggedDoneCalls).to.have.length(1);
 				var loggedDoneCall = loggedDoneCalls[0];
 				expect(loggedDoneCall.priorNumBlueCalls).to.equal(8);
 				done();
@@ -126,7 +123,6 @@ describe('exercise two (involving poem two)', function () {
 					expect(blueCalls.length).to.be.below(8);
 				}
 				var loggedDoneCalls = getLoggedDoneCalls();
-				expect(loggedDoneCalls).to.have.length(1);
 				var loggedDoneCall = loggedDoneCalls[0];
 				expect(loggedDoneCall.priorNumBlueCalls).to.equal(blueCalls.length);
 				if (blueCalls.length !== stanzas.length) {
