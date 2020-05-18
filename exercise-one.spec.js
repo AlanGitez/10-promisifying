@@ -35,6 +35,7 @@ function exactlyOneIsTrue(boolA, boolB) {
   return onlyOne;
 }
 
+
 function getCall(spy, n) {
   return spy.__spy.calls[n] || [];
 }
