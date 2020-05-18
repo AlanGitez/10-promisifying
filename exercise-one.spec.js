@@ -155,7 +155,6 @@ describe('exercise one (involving poem one)', function () {
 						return /done/.test(arg);
 					});
 				});
-				expect(loggedDoneCalls).to.have.length(1);
 				var loggedDoneCall = loggedDoneCalls[0];
 				var bothSucceeded = (blueCalls.length === 2);
 				var onlyFirstSucceeded = (blueCalls.length === 1);
