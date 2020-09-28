@@ -129,7 +129,7 @@ describe("exercise two (involving poem two)", function () {
         var loggedDoneCall = loggedDoneCalls[0];
         expect(loggedDoneCall.priorNumBlueCalls).to.equal(blueCalls.length);
         if (blueCalls.length !== stanzas.length) {
-          expect(loggedDoneCall.priorNumRedCalls).to.equal(1);
+          expect(loggedDoneCall.priorNumMagentaCalls).to.equal(1);
         }
         done();
       }, 2000);
