@@ -1,15 +1,15 @@
 'use strict';
 
-var Promise = require('bluebird'),
+const Promise = require('bluebird'),
     async = require('async'),
     exerciseUtils = require('./utils');
 
-var readFile = exerciseUtils.readFile,
+const readFile = exerciseUtils.readFile,
     promisifiedReadFile = exerciseUtils.promisifiedReadFile,
     blue = exerciseUtils.blue,
     magenta = exerciseUtils.magenta;
 
-var args = process.argv.slice(2).map(function(st){ return st.toUpperCase(); });
+const args = process.argv.slice(2).map(function(st){ return st.toUpperCase(); });
 
 module.exports = {
   problemA: problemA,
@@ -21,7 +21,7 @@ module.exports = {
 
 // corre cada problema dado como un argumento del command-line para procesar
 args.forEach(function(arg){
-  var problem = module.exports['problem' + arg];
+  const problem = module.exports['problem' + arg];
   if (problem) problem();
 });
 
@@ -64,7 +64,7 @@ function problemB () {
    *
    */
 
-  var filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
+  const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
     return 'poem-two/' + 'stanza-0' + n + '.txt';
   });
 
@@ -98,7 +98,7 @@ function problemC () {
    *
    */
 
-  var filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
+  const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
     return 'poem-two/' + 'stanza-0' + n + '.txt';
   });
 
@@ -132,10 +132,10 @@ function problemD () {
    *
    */
 
-  var filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
+  const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
     return 'poem-two/' + 'stanza-0' + n + '.txt';
   });
-  var randIdx = Math.floor(Math.random() * filenames.length);
+  const randIdx = Math.floor(Math.random() * filenames.length);
   filenames[randIdx] = 'wrong-file-name-' + (randIdx + 1) + '.txt';
 
   // callback version
@@ -166,7 +166,7 @@ function problemE () {
    *
    */
 
-  var fs = require('fs');
+  const fs = require('fs');
   function promisifiedWriteFile (filename, str) {
     // tu código aquí
   }
