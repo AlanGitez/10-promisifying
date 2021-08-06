@@ -1,22 +1,22 @@
 "use strict";
 
-var path = require("path");
-var chai = require("chai");
-var expect = chai.expect;
-var fs = require("fs");
+const path = require("path");
+const chai = require("chai");
+const expect = chai.expect;
+const fs = require("fs");
 chai.use(require("chai-spies"));
 
-var utils = require("./utils");
-var { blue, magenta } = utils;
+const utils = require("./utils");
+let { blue, magenta } = utils;
 
 if (!utils.__spy) {
   blue = chai.spy.on(utils, "blue");
   magenta = chai.spy.on(utils, "magenta");
 }
 
-var exercise = require("./exercise-one");
-var dirpath = path.join(__dirname, "poem-one");
-var stanzas = fs
+const exercise = require("./exercise-one");
+const dirpath = path.join(__dirname, "poem-one");
+const stanzas = fs
   .readdirSync(dirpath)
   .filter(function (filename) {
     return filename[0] !== ".";
@@ -26,7 +26,7 @@ var stanzas = fs
   });
 
 function exactlyOneIsTrue(boolA, boolB) {
-  var onlyOne = true;
+  const onlyOne = true;
   if (boolA && boolB) {
     onlyOne = false;
   } else if (!boolA && !boolB) {
@@ -46,7 +46,7 @@ describe("exercise one (involving poem one)", function () {
     utils.resetSpy(magenta);
   });
 
-  var blueCalls, magentaCalls;
+  let blueCalls, magentaCalls;
   beforeEach(function () {
     blueCalls = blue.__spy.calls;
     magentaCalls = magenta.__spy.calls;
@@ -78,8 +78,8 @@ describe("exercise one (involving poem one)", function () {
     xit("logs the second THEN the third stanza", function (done) {
       exercise.problemC();
       setTimeout(function () {
-        var firstCallArgs = blueCalls[0];
-        var secondCallArgs = blueCalls[1];
+        const firstCallArgs = blueCalls[0];
+        const secondCallArgs = blueCalls[1];
         expect(firstCallArgs[0]).to.equal(stanzas[1]);
         expect(secondCallArgs[0]).to.equal(stanzas[2]);
         expect(blueCalls).to.have.length(2);
@@ -92,9 +92,9 @@ describe("exercise one (involving poem one)", function () {
     xit("logs the fourth stanza or an error if one occurs", function (done) {
       exercise.problemD();
       setTimeout(function () {
-        var blueCalledWithStanza = getCall(blue, 0)[0] == stanzas[3];
-        var magentaCalledWithError = getCall(magenta, 0)[0] instanceof Error;
-        var exactlyOneOccurred = exactlyOneIsTrue(
+        const blueCalledWithStanza = getCall(blue, 0)[0] == stanzas[3];
+        const magentaCalledWithError = getCall(magenta, 0)[0] instanceof Error;
+        const exactlyOneOccurred = exactlyOneIsTrue(
           blueCalledWithStanza,
           magentaCalledWithError
         );
@@ -108,9 +108,9 @@ describe("exercise one (involving poem one)", function () {
     xit("logs the third THEN the fourth stanza; if an error occurs only logs the error and does not continue reading (if there is a file still left to read)", function (done) {
       exercise.problemE();
       setTimeout(function () {
-        var bothSucceeded = blueCalls.length === 2;
-        var onlyFirstSucceeded = blueCalls.length === 1;
-        var firstFailed = blueCalls.length === 0;
+        const bothSucceeded = blueCalls.length === 2;
+        const onlyFirstSucceeded = blueCalls.length === 1;
+        const firstFailed = blueCalls.length === 0;
         if (bothSucceeded) {
           expect(blueCalls[0][0]).to.equal(stanzas[2]);
           expect(blueCalls[1][0]).to.equal(stanzas[3]);
@@ -133,8 +133,8 @@ describe("exercise one (involving poem one)", function () {
   });
 
   describe("problemF", function () {
-    var originalLog = console.log;
-    var logList = [];
+    const originalLog = console.log;
+    let logList = [];
     before(function () {
       console.log = function (...args) {
         logList.push({
@@ -152,16 +152,16 @@ describe("exercise one (involving poem one)", function () {
     xit("logs the third THEN the fourth stanza; if an error occrus only logs the error and does not continue reading (if there is a file still left to read); always finishes by logging some done message", function (done) {
       exercise.problemF();
       setTimeout(function () {
-        var loggedDoneCalls = logList.filter(function (call) {
+        const loggedDoneCalls = logList.filter(function (call) {
           return call.args.some(function (arg) {
             return /done/.test(arg);
           });
         });
         expect(loggedDoneCalls).to.have.length(1);
-        var loggedDoneCall = loggedDoneCalls[0];
-        var bothSucceeded = blueCalls.length === 2;
-        var onlyFirstSucceeded = blueCalls.length === 1;
-        var firstFailed = blueCalls.length === 0;
+        const loggedDoneCall = loggedDoneCalls[0];
+        const bothSucceeded = blueCalls.length === 2;
+        const onlyFirstSucceeded = blueCalls.length === 1;
+        const firstFailed = blueCalls.length === 0;
         if (bothSucceeded) {
           expect(blueCalls[0][0]).to.equal(stanzas[2]);
           expect(blueCalls[1][0]).to.equal(stanzas[3]);

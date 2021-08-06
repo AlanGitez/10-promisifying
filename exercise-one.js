@@ -11,15 +11,15 @@
 
 "use strict";
 
-var Promise = require("bluebird"),
+const Promise = require("bluebird"),
   exerciseUtils = require("./utils");
 
-var readFile = exerciseUtils.readFile,
+  const readFile = exerciseUtils.readFile,
   promisifiedReadFile = exerciseUtils.promisifiedReadFile,
   blue = exerciseUtils.blue,
   magenta = exerciseUtils.magenta;
 
-var args = process.argv.slice(2).map(function (st) {
+  const args = process.argv.slice(2).map(function (st) {
   return st.toUpperCase();
 });
 
@@ -34,7 +34,7 @@ module.exports = {
 
 // corre cada problema dado como un argumento del command-line para procesar
 args.forEach(function (arg) {
-  var problem = module.exports["problem" + arg];
+  const problem = module.exports["problem" + arg];
   if (problem) problem();
 });
 
