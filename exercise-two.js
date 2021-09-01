@@ -28,19 +28,19 @@ args.forEach(function(arg){
 function problemA () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * A. loggea el poema dos stanza uno y stanza dos en cualquier orden
-   *    pero loggea 'done' cuando ambos hayan terminado
+   * A. loguea el poema dos estrofa uno y estrofa dos en cualquier orden
+   *    pero loguea 'done' cuando ambos hayan terminado
    *    (ignora errores)
    *    nota: lecturas ocurriendo paralelamente (en simultaneo)
    *
    */
 
   // callback version
-  async.each(['poem-two/stanza-01.txt', 'poem-two/stanza-02.txt'],
+  async.each(['poem-two/estrofa-01.txt', 'poem-two/estrofa-02.txt'],
     function (filename, eachDone) {
-      readFile(filename, function (err, stanza) {
+      readFile(filename, function (err, estrofa) {
         console.log('-- A. callback version --');
-        blue(stanza);
+        blue(estrofa);
         eachDone();
       });
     },
@@ -57,7 +57,7 @@ function problemA () {
 function problemB () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * B. loggea todas las stanzas en poema dos, en cualquier orden y loggea
+   * B. loguea todas las estrofas en poema dos, en cualquier orden y loguea
    *    'done' cuando todas hayan terminado
    *    (ignora errores)
    *    nota: las lecturas ocurren en paralelo (en simultaneo)
@@ -65,15 +65,15 @@ function problemB () {
    */
 
   const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
-    return 'poem-two/' + 'stanza-0' + n + '.txt';
+    return 'poem-two/' + 'estrofa-0' + n + '.txt';
   });
 
   // callback version
   async.each(filenames,
     function (filename, eachDone) {
-      readFile(filename, function (err, stanza) {
+      readFile(filename, function (err, estrofa) {
         console.log('-- B. callback version --');
-        blue(stanza);
+        blue(estrofa);
         eachDone();
       });
     },
@@ -90,8 +90,8 @@ function problemB () {
 function problemC () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * C. Lee y loggea todas las stanzas en el poema dos, *en orden* y
-   *    loggea 'done cuando hayan terminado todas
+   * C. Lee y loguea todas las estrofas en el poema dos, *en orden* y
+   *    loguea 'done' cuando hayan terminado todas
    *    (ignorá errores)
    *    nota: las lecturas ocurren en serie (solo cuando las previas
    *    hayan terminado)
@@ -105,9 +105,9 @@ function problemC () {
   // callback version
   async.eachSeries(filenames,
     function (filename, eachDone) {
-      readFile(filename, function (err, stanza) {
+      readFile(filename, function (err, estrofa) {
         console.log('-- C. callback version --');
-        blue(stanza);
+        blue(estrofa);
         eachDone();
       });
     },
@@ -124,8 +124,8 @@ function problemC () {
 function problemD () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * D. loggea todas las stanzas en el poema dos *en orden* asegurandote
-   *    de fallar para cualquier error y logueando un 'done cuando todas
+   * D. loguea todas las estrofas en el poema dos *en orden* asegurandote
+   *    de fallar para cualquier error y logueando un 'done' cuando todas
    *    hayan terminado
    *    nota: las lecturas ocurren en serie (solo cuando las previas
    *    hayan terminado)
@@ -133,7 +133,7 @@ function problemD () {
    */
 
   const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
-    return 'poem-two/' + 'stanza-0' + n + '.txt';
+    return 'poem-two/' + 'estrofa-0' + n + '.txt';
   });
   const randIdx = Math.floor(Math.random() * filenames.length);
   filenames[randIdx] = 'wrong-file-name-' + (randIdx + 1) + '.txt';
@@ -141,10 +141,10 @@ function problemD () {
   // callback version
   async.eachSeries(filenames,
     function (filename, eachDone) {
-      readFile(filename, function (err, stanza) {
+      readFile(filename, function (err, estrofa) {
         console.log('-- D. callback version --');
         if (err) return eachDone(err);
-        blue(stanza);
+        blue(estrofa);
         eachDone();
       });
     },

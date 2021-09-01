@@ -16,7 +16,7 @@ if (!utils.blue.__spy) {
 const fs = require("fs");
 const exercise = require("./exercise-two");
 const dirpath = path.join(__dirname, "poem-two");
-const stanzas = fs
+const estrofas = fs
   .readdirSync(dirpath)
   .filter(function (filename) {
     return filename[0] !== ".";
@@ -62,11 +62,11 @@ describe("exercise two (involving poem two)", function () {
   }
 
   describe("problemA", function () {
-    xit("ignoring errors, logs the first and second stanza in any order, and a done message when both are complete", function (done) {
+    xit("loggea la estrofa uno y la estrofa dos en cualquier orden pero loggea 'done' cuando ambos hayan terminado (ignora errores)", function (done) {
       exercise.problemA();
       setTimeout(function () {
-        expect(blue).to.have.been.called.with(stanzas[0]);
-        expect(blue).to.have.been.called.with(stanzas[1]);
+        expect(blue).to.have.been.called.with(estrofas[0]);
+        expect(blue).to.have.been.called.with(estrofas[1]);
         const loggedDoneCalls = getLoggedDoneCalls();
         expect(loggedDoneCalls).to.have.length(1);
         const loggedDoneCall = loggedDoneCalls[0];
@@ -77,28 +77,28 @@ describe("exercise two (involving poem two)", function () {
   });
 
   describe("problemB", function () {
-    xit("ignoring errors, logs all stanzas in any order, and a done message when all are complete", function (done) {
+    xit("loguea todas las estrofasen cualquier orden y loggea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
       this.timeout(3000);
       exercise.problemB();
       setTimeout(function () {
-        stanzas.forEach(function (stanza) {
+        estrofas.forEach(function (stanza) {
           expect(blue).to.have.been.called.with(stanza);
         });
         const loggedDoneCalls = getLoggedDoneCalls();
         expect(loggedDoneCalls).to.have.length(1);
         const loggedDoneCall = loggedDoneCalls[0];
-        expect(loggedDoneCall.priorNumBlueCalls).to.equal(stanzas.length);
+        expect(loggedDoneCall.priorNumBlueCalls).to.equal(estrofas.length);
         done();
       }, 2000);
     });
   });
 
   describe("problemC", function () {
-    xit("ignoring errors, logs all stanzas in the correct order, and a done message when all are complete", function (done) {
+    xit("loguea todas las estrofas en el poema dos, *en orden* y loggea 'done' cuando hayan terminado todas (ignorá errores)", function (done) {
       this.timeout(3000);
       exercise.problemC();
       setTimeout(function () {
-        stanzas.forEach(function (stanza, index) {
+        estrofas.forEach(function (stanza, index) {
           const callArgs = blueCalls[index];
           expect(callArgs[0]).to.equal(stanza);
         });
@@ -112,12 +112,12 @@ describe("exercise two (involving poem two)", function () {
   });
 
   describe("problemD", function () {
-    xit("logs all stanzas in the correct order; if an error occurs does not read the next file and instead logs the error; always logs done at the end", function (done) {
+    xit("loguea todas las estrofas en el poema dos *en orden* asegurandote de fallar para cualquier error y logueando un 'done' cuando todas hayan terminado", function (done) {
       this.timeout(3000);
       exercise.problemD();
       setTimeout(function () {
         blueCalls.forEach(function (callArgs, index) {
-          expect(callArgs[0]).to.equal(stanzas[index]);
+          expect(callArgs[0]).to.equal(estrofas[index]);
         });
         if (redCalls.length) {
           expect(redCalls.length).to.equal(1);
@@ -128,7 +128,7 @@ describe("exercise two (involving poem two)", function () {
         expect(loggedDoneCalls).to.have.length(1);
         const loggedDoneCall = loggedDoneCalls[0];
         expect(loggedDoneCall.priorNumBlueCalls).to.equal(blueCalls.length);
-        if (blueCalls.length !== stanzas.length) {
+        if (blueCalls.length !== estrofas.length) {
           expect(loggedDoneCall.priorNumMagentaCalls).to.equal(1);
         }
         done();

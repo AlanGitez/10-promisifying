@@ -16,7 +16,7 @@ if (!utils.__spy) {
 
 const exercise = require("./exercise-one");
 const dirpath = path.join(__dirname, "poem-one");
-const stanzas = fs
+const estrofas = fs
   .readdirSync(dirpath)
   .filter(function (filename) {
     return filename[0] !== ".";
@@ -53,21 +53,21 @@ describe("exercise one (involving poem one)", function () {
   });
 
   describe("problemA", function () {
-    xit("logs the first stanza", function (done) {
+    xit("loguea la primer estrofa", function (done) {
       exercise.problemA();
       setTimeout(function () {
-        expect(blue).to.have.been.called.with(stanzas[0]);
+        expect(blue).to.have.been.called.with(estrofas[0]);
         done();
       }, 250);
     });
   });
 
   describe("problemB", function () {
-    xit("logs the second and third stanzas in any order", function (done) {
+    xit("loguea la estrofa dos y tres, en cualquier orden", function (done) {
       exercise.problemB();
       setTimeout(function () {
-        expect(blue).to.have.been.called.with(stanzas[1]);
-        expect(blue).to.have.been.called.with(stanzas[2]);
+        expect(blue).to.have.been.called.with(estrofas[1]);
+        expect(blue).to.have.been.called.with(estrofas[2]);
         expect(blueCalls).to.have.length(2);
         done();
       }, 500);
@@ -75,13 +75,13 @@ describe("exercise one (involving poem one)", function () {
   });
 
   describe("problemC", function () {
-    xit("logs the second THEN the third stanza", function (done) {
+    xit("loguea la estrofa dos y después loguea la estrofa tres", function (done) {
       exercise.problemC();
       setTimeout(function () {
         const firstCallArgs = blueCalls[0];
         const secondCallArgs = blueCalls[1];
-        expect(firstCallArgs[0]).to.equal(stanzas[1]);
-        expect(secondCallArgs[0]).to.equal(stanzas[2]);
+        expect(firstCallArgs[0]).to.equal(estrofas[1]);
+        expect(secondCallArgs[0]).to.equal(estrofas[2]);
         expect(blueCalls).to.have.length(2);
         done();
       }, 500);
@@ -89,10 +89,10 @@ describe("exercise one (involving poem one)", function () {
   });
 
   describe("problemD", function () {
-    xit("logs the fourth stanza or an error if one occurs", function (done) {
+    xit("loguea la estrofa cuatro o un error si llega a ocurrir", function (done) {
       exercise.problemD();
       setTimeout(function () {
-        const blueCalledWithStanza = getCall(blue, 0)[0] == stanzas[3];
+        const blueCalledWithStanza = getCall(blue, 0)[0] == estrofas[3];
         const magentaCalledWithError = getCall(magenta, 0)[0] instanceof Error;
         const exactlyOneOccurred = exactlyOneIsTrue(
           blueCalledWithStanza,
@@ -105,18 +105,18 @@ describe("exercise one (involving poem one)", function () {
   });
 
   describe("problemE", function () {
-    xit("logs the third THEN the fourth stanza; if an error occurs only logs the error and does not continue reading (if there is a file still left to read)", function (done) {
+    xit("loguea la estrofa tres y después loguea la estrofa cuatro o un error si llegase a ocurrir para cualquiera de las lecturas)", function (done) {
       exercise.problemE();
       setTimeout(function () {
         const bothSucceeded = blueCalls.length === 2;
         const onlyFirstSucceeded = blueCalls.length === 1;
         const firstFailed = blueCalls.length === 0;
         if (bothSucceeded) {
-          expect(blueCalls[0][0]).to.equal(stanzas[2]);
-          expect(blueCalls[1][0]).to.equal(stanzas[3]);
+          expect(blueCalls[0][0]).to.equal(estrofas[2]);
+          expect(blueCalls[1][0]).to.equal(estrofas[3]);
           expect(magentaCalls).to.be.empty;
         } else if (onlyFirstSucceeded) {
-          expect(blueCalls[0][0]).to.equal(stanzas[2]);
+          expect(blueCalls[0][0]).to.equal(estrofas[2]);
           expect(magentaCalls).to.have.length(1);
           expect(magentaCalls[0][0]).to.be.instanceof(Error);
         } else if (firstFailed) {
@@ -149,7 +149,7 @@ describe("exercise one (involving poem one)", function () {
       logList = [];
     });
 
-    xit("logs the third THEN the fourth stanza; if an error occrus only logs the error and does not continue reading (if there is a file still left to read); always finishes by logging some done message", function (done) {
+    xit("loguea la estrofa tres y después loguea la estrofa cuatro o loguea un error si ocurre para cualquiera de las lecturas y siempre loguea 'done' cuando todo haya terminado", function (done) {
       exercise.problemF();
       setTimeout(function () {
         const loggedDoneCalls = logList.filter(function (call) {
@@ -163,13 +163,13 @@ describe("exercise one (involving poem one)", function () {
         const onlyFirstSucceeded = blueCalls.length === 1;
         const firstFailed = blueCalls.length === 0;
         if (bothSucceeded) {
-          expect(blueCalls[0][0]).to.equal(stanzas[2]);
-          expect(blueCalls[1][0]).to.equal(stanzas[3]);
+          expect(blueCalls[0][0]).to.equal(estrofas[2]);
+          expect(blueCalls[1][0]).to.equal(estrofas[3]);
           expect(magentaCalls).to.be.empty;
           expect(loggedDoneCall.priorNumBlueCalls).to.equal(2);
           expect(loggedDoneCall.priorNumMagentaCalls).to.equal(0);
         } else if (onlyFirstSucceeded) {
-          expect(blueCalls[0][0]).to.equal(stanzas[2]);
+          expect(blueCalls[0][0]).to.equal(estrofas[2]);
           expect(magentaCalls).to.have.length(1);
           expect(magentaCalls[0][0]).to.be.instanceof(Error);
           expect(loggedDoneCall.priorNumBlueCalls).to.equal(1);

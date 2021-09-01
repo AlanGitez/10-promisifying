@@ -41,14 +41,14 @@ args.forEach(function (arg) {
 function problemA() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * A. logue el poema uno stanza uno (ignorá errores)
+   * A. loguea el poema uno estrofa uno (ignorá errores)
    *
    */
 
   // callback version
-  readFile("poem-one/stanza-01.txt", function (err, stanza) {
+  readFile("poem-one/estrofa-01.txt", function (err, estrofa) {
     console.log("-- A. callback version --");
-    blue(stanza);
+    blue(estrofa);
   });
 
   // promise version
@@ -58,19 +58,19 @@ function problemA() {
 function problemB() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * B. loggea el poema uno stanza dos y tres, en cualquier orden
+   * B. loggea el poema uno estrofa dos y tres, en cualquier orden
    *    (ignora errores)
    *
    */
 
   // callback version
-  readFile("poem-one/stanza-02.txt", function (err, stanza2) {
-    console.log("-- B. callback version (stanza two) --");
-    blue(stanza2);
+  readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
+    console.log("-- B. callback version (estrofa dos) --");
+    blue(estrofa2);
   });
-  readFile("poem-one/stanza-03.txt", function (err, stanza3) {
-    console.log("-- B. callback version (stanza three) --");
-    blue(stanza3);
+  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+    console.log("-- B. callback version (estrofa tres) --");
+    blue(estrofa3);
   });
 
   // promise version
@@ -80,21 +80,21 @@ function problemB() {
 function problemC() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * C. lee & loggea el poema uno stanza dos y *DESPUES* lee & loggea
-   *    stanza tres. Loggea 'done' cuando ambas hayan terminado. Fijate
-   *    que los specs estan opinionados y espara la palabra exacata
+   * C. lee & loggea el poema uno estrofa dos y *DESPUES* lee & loggea
+   *    estrofa tres. Loggea 'done' cuando ambas hayan terminado. Fijate
+   *    que los specs estan opinionados y espara la palabra exacta
    *    'done' (case sensitive) para ser loggeada para poder pasar
    *    (ignora errores)
    *
    */
 
   // callback version
-  readFile("poem-one/stanza-02.txt", function (err, stanza2) {
-    console.log("-- C. callback version (stanza two) --");
-    blue(stanza2);
-    readFile("poem-one/stanza-03.txt", function (err, stanza3) {
-      console.log("-- C. callback version (stanza three) --");
-      blue(stanza3);
+  readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
+    console.log("-- C. callback version (estrofa dos) --");
+    blue(estrofa2);
+    readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+      console.log("-- C. callback version (estrofa tres) --");
+      blue(estrofa3);
       console.log("-- C. callback version done --");
     });
   });
@@ -106,15 +106,15 @@ function problemC() {
 function problemD() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * D. loggea el poema uno stanza cuatro o un error si llega a ocurrir
+   * D. loggea el poema uno estrofa cuatro o un error si llega a ocurrir
    *
    */
 
   // callback version
-  readFile("poem-one/wrong-file-name.txt", function (err, stanza4) {
-    console.log("-- D. callback version (stanza four) --");
+  readFile("poem-one/wrong-file-name.txt", function (err, estrofa4) {
+    console.log("-- D. callback version (estrofa cuatro) --");
     if (err) magenta(err);
-    else blue(stanza4);
+    else blue(estrofa4);
   });
 
   // promise version
@@ -124,21 +124,21 @@ function problemD() {
 function problemE() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * E. Lee y loggea el poema uno stanza tres y *DESPUES* lee y loggea la
-   *    stanza cuatro o loggea un error si llegase a ocurrir para
-   *    cuaquiera de las lecturas
+   * E. Lee y loggea el poema uno estrofa tres y *DESPUES* lee y loggea la
+   *    estrofa cuatro o loggea un error si llegase a ocurrir para
+   *    cualquiera de las lecturas
    *
    */
 
   // callback version
-  readFile("poem-one/stanza-03.txt", function (err, stanza3) {
-    console.log("-- E. callback version (stanza three) --");
+  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+    console.log("-- E. callback version (estrofa tres) --");
     if (err) return magenta(err);
-    blue(stanza3);
-    readFile("poem-one/wrong-file-name.txt", function (err2, stanza4) {
-      console.log("-- E. callback version (stanza four) --");
+    blue(estrofa3);
+    readFile("poem-one/wrong-file-name.txt", function (err2, estrofa4) {
+      console.log("-- E. callback version (estrofa cuatro) --");
       if (err2) return magenta(err2);
-      blue(stanza4);
+      blue(estrofa4);
     });
   });
 
@@ -149,25 +149,25 @@ function problemE() {
 function problemF() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * F. Lee & loggea el poema uno stanza tres y *DESPUES* lee y loguea la
-   *    stanza cuatro o loggea un error si occrre para cualquiera de las
+   * F. Lee & loggea el poema uno estrofa tres y *DESPUES* lee y loguea la
+   *    estrofa cuatro o loggea un error si ocurre para cualquiera de las
    *    lecturas y siempre loggea 'done' cuando todo haya terminado
    *
    */
 
   // callback version
-  readFile("poem-one/stanza-03.txt", function (err, stanza3) {
-    console.log("-- F. callback version (stanza three) --");
+  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+    console.log("-- F. callback version (estrofa tres) --");
     if (err) {
       magenta(err);
       console.log("-- F. callback version done --");
       return;
     }
-    blue(stanza3);
-    readFile("poem-one/wrong-file-name.txt", function (err2, stanza4) {
-      console.log("-- F. callback version (stanza four) --");
+    blue(estrofa3);
+    readFile("poem-one/wrong-file-name.txt", function (err2, estrofa4) {
+      console.log("-- F. callback version (estrofa cuatro) --");
       if (err2) magenta(err2);
-      else blue(stanza4);
+      else blue(estrofa4);
       console.log("-- F. callback version done --");
     });
   });
