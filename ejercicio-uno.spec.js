@@ -52,9 +52,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
     magentaCalls = magenta.__spy.calls;
   });
 
-  describe("problemA", function () {
-    xit("loguea la primer estrofa", function (done) {
-      exercise.problemA();
+  describe("problemaA", function () {
+    xit("loguea la primera estrofa", function (done) {
+      exercise.problemaA();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[0]);
         done();
@@ -62,9 +62,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
     });
   });
 
-  describe("problemB", function () {
+  describe("problemaB", function () {
     xit("loguea la estrofa dos y tres, en cualquier orden", function (done) {
-      exercise.problemB();
+      exercise.problemaB();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[1]);
         expect(blue).to.have.been.called.with(estrofas[2]);
@@ -74,9 +74,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
     });
   });
 
-  describe("problemC", function () {
-    xit("loguea la estrofa dos y después loguea la estrofa tres", function (done) {
-      exercise.problemC();
+  describe("problemaC", function () {
+    xit("loguea la estrofa dos y luego la estrofa tres", function (done) {
+      exercise.problemaC();
       setTimeout(function () {
         const firstCallArgs = blueCalls[0];
         const secondCallArgs = blueCalls[1];
@@ -88,9 +88,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
     });
   });
 
-  describe("problemD", function () {
-    xit("loguea la estrofa cuatro o un error si llega a ocurrir", function (done) {
-      exercise.problemD();
+  describe("problemaD", function () {
+    xit("loguea la estrofa cuatro o un error si llegara a ocurrir", function (done) {
+      exercise.problemaD();
       setTimeout(function () {
         const blueCalledWithStanza = getCall(blue, 0)[0] == estrofas[3];
         const magentaCalledWithError = getCall(magenta, 0)[0] instanceof Error;
@@ -104,9 +104,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
     });
   });
 
-  describe("problemE", function () {
-    xit("loguea la estrofa tres y después loguea la estrofa cuatro o un error si llegase a ocurrir para cualquiera de las lecturas)", function (done) {
-      exercise.problemE();
+  describe("problemaE", function () {
+    xit("loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas)", function (done) {
+      exercise.problemaE();
       setTimeout(function () {
         const bothSucceeded = blueCalls.length === 2;
         const onlyFirstSucceeded = blueCalls.length === 1;
@@ -132,7 +132,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
     });
   });
 
-  describe("problemF", function () {
+  describe("problemaF", function () {
     const originalLog = console.log;
     let logList = [];
     before(function () {
@@ -149,8 +149,9 @@ describe("Ejercicio uno (del poema-uno)", function () {
       logList = [];
     });
 
-    xit("loguea la estrofa tres y después loguea la estrofa cuatro o loguea un error si ocurre para cualquiera de las lecturas y siempre loguea 'done' cuando todo haya terminado", function (done) {
-      exercise.problemF();
+    xit(`loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas 
+    y siempre loguea 'done' cuando todo haya terminado`, function (done) {
+      exercise.problemaF();
       setTimeout(function () {
         const loggedDoneCalls = logList.filter(function (call) {
           return call.args.some(function (arg) {
