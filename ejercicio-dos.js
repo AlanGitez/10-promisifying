@@ -12,31 +12,30 @@ const readFile = exerciseUtils.readFile,
 const args = process.argv.slice(2).map(function(st){ return st.toUpperCase(); });
 
 module.exports = {
-  problemA: problemA,
-  problemB: problemB,
-  problemC: problemC,
-  problemD: problemD,
-  problemE: problemE
+  problemaA: problemaA,
+  problemaB: problemaB,
+  problemaC: problemaC,
+  problemaD: problemaD,
+  problemaE: problemaE
 };
 
-// corre cada problema dado como un argumento del command-line para procesar
+// Corre cada problema dado como un argumento del command-line para procesar.
 args.forEach(function(arg){
-  const problem = module.exports['problem' + arg];
-  if (problem) problem();
+  const problema = module.exports['problema' + arg];
+  if (problema) problema();
 });
 
-function problemA () {
+function problemaA () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * A. loguea el poema dos estrofa uno y estrofa dos en cualquier orden
-   *    pero loguea 'done' cuando ambos hayan terminado
-   *    (ignora errores)
-   *    nota: lecturas ocurriendo paralelamente (en simultaneo)
+   * A. Logueá, en versión Promesas, el poema-dos, estrofa-uno y estrofa-dos en cualquier orden. Ignorá errores.
+   *    Logueá 'done' cuando ambos hayan terminado.
+   *    Las Promesas serán evaluadas en paralelo. Es decir, corren en simultáneo.
    *
    */
 
-  // callback version
-  async.each(['poem-two/estrofa-01.txt', 'poem-two/estrofa-02.txt'],
+  // Versión Callback
+  async.each(['poema-dos/estrofa-01.txt', 'poema-dos/estrofa-02.txt'],
     function (filename, eachDone) {
       readFile(filename, function (err, estrofa) {
         console.log('-- A. callback version --');
@@ -49,26 +48,24 @@ function problemA () {
     }
   );
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 
 }
 
-function problemB () {
+function problemaB () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * B. loguea todas las estrofas en poema dos, en cualquier orden y loguea
-   *    'done' cuando todas hayan terminado
-   *    (ignora errores)
-   *    nota: las lecturas ocurren en paralelo (en simultaneo)
-   *
+   * B. Logueá, en versión Promesas, todas las estrofas en poema-dos, en cualquier orden. Ignorá errores.
+   *    Logueá 'done' cuando todas hayan terminado.
+   *    *Recordá*: Las Promesas serán evaluadas en paralelo. Es decir, corren en simultáneo.
    */
 
   const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
-    return 'poem-two/' + 'estrofa-0' + n + '.txt';
+    return 'poema-dos/' + 'estrofa-0' + n + '.txt';
   });
 
-  // callback version
+  // Versión Callback
   async.each(filenames,
     function (filename, eachDone) {
       readFile(filename, function (err, estrofa) {
@@ -82,27 +79,26 @@ function problemB () {
     }
   );
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 
 }
 
-function problemC () {
+function problemaC () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * C. Lee y loguea todas las estrofas en el poema dos, *en orden* y
-   *    loguea 'done' cuando hayan terminado todas
-   *    (ignorá errores)
-   *    nota: las lecturas ocurren en serie (solo cuando las previas
-   *    hayan terminado)
+   * C. Leé y logueá, en versión Promesas, todas las estrofas en el poema-dos, *en orden*. Ignorá errores.
+   *    Logueá 'done' cuando hayan terminado todas.
+   *    *Importante*: Las lecturas ocurren en serie. Es decir, una comienza cuando la anterior
+   *    haya terminado.
    *
    */
 
   const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
-    return 'poem-two/' + 'stanza-0' + n + '.txt';
+    return 'poema-dos/' + 'estrofa-0' + n + '.txt';
   });
 
-  // callback version
+  // Versión Callback
   async.eachSeries(filenames,
     function (filename, eachDone) {
       readFile(filename, function (err, estrofa) {
@@ -116,29 +112,32 @@ function problemC () {
     }
   );
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 
 }
 
-function problemD () {
+function problemaD () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * D. loguea todas las estrofas en el poema dos *en orden* asegurandote
+   * D. Logueá, en versión Promesas, todas las estrofas en el poema-dos *en orden*.
+   *    Asegurate de capturar cualquier error.
+   *    Logueá 'done' cuando todas hayan terminado.
+   asegurandote
    *    de fallar para cualquier error y logueando un 'done' cuando todas
    *    hayan terminado
-   *    nota: las lecturas ocurren en serie (solo cuando las previas
-   *    hayan terminado)
+   *    *Importante*: Las lecturas ocurren en serie. Es decir, una comienza cuando la anterior
+   *    haya terminado.
    *
    */
 
   const filenames = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
-    return 'poem-two/' + 'estrofa-0' + n + '.txt';
+    return 'poema-dos/' + 'estrofa-0' + n + '.txt';
   });
   const randIdx = Math.floor(Math.random() * filenames.length);
   filenames[randIdx] = 'wrong-file-name-' + (randIdx + 1) + '.txt';
 
-  // callback version
+  // Versión Callback
   async.eachSeries(filenames,
     function (filename, eachDone) {
       readFile(filename, function (err, estrofa) {
@@ -154,20 +153,20 @@ function problemD () {
     }
   );
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 
 }
 
-function problemE () {
+function problemaE () {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * E. Haz una versión promisificada de fs.writeFile
+   * E. Creá una versión promisificada de `fs.writeFile`.
    *
    */
 
   const fs = require('fs');
   function promisifiedWriteFile (filename, str) {
-    // tu código aquí
+    // [Escribí tu código acá]
   }
 }
