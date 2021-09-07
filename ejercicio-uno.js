@@ -42,7 +42,7 @@ args.forEach(function (arg) {
 function problemA() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * A. Loguea el poema-uno, estrofa-uno (ignorá errores).
+   * A. Logueá, en versión Promesas, el poema-uno, estrofa-uno. Ignorá errores.
    *
    */
 
@@ -59,8 +59,8 @@ function problemA() {
 function problemB() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * B. Loguea el poema-uno, estrofa-dos y estrofa-tres, en cualquier orden
-   *    (ignorá errores)
+   * B. Logueá, en versión Promesas, el poema-uno, estrofa-dos y estrofa-tres, en cualquier orden. Ignorá errores.
+   *  
    *
    */
 
@@ -81,15 +81,15 @@ function problemB() {
 function problemC() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * C. lee & loggea el poema uno estrofa dos y *DESPUES* lee & loggea
-   *    estrofa tres. Loggea 'done' cuando ambas hayan terminado. Fijate
-   *    que los specs estan opinionados y espara la palabra exacta
-   *    'done' (case sensitive) para ser loggeada para poder pasar
-   *    (ignora errores)
+   * C. Leé y logueá, en versión Promesas, el poema-uno, estrofa-dos. Luego, leé y mostrá por consola
+   *    estrofa-tres. Cuando ambas hayan terminado, logueá 'done'. Ignorá errores.
+   * 
+   * *Tip*: Los specs esperarán la palabra exacta 'done' para pasar el test. 
+   *    Prestá atención a las mayúsculas y minúsculas porque es case sensitive.
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
     console.log("-- C. callback version (estrofa dos) --");
     blue(estrofa2);
@@ -100,38 +100,38 @@ function problemC() {
     });
   });
 
-  // promise version (no hace falta anidar los .then)
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
+  // *Tip*: No hace falta anidar los `.then`.
 }
 
 function problemD() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * D. loggea el poema uno estrofa cuatro o un error si llega a ocurrir
+   * D. Logueá, en versión Promesas, el poema-uno, estrofa-cuatro o un error (si llegara a ocurrir).
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/wrong-file-name.txt", function (err, estrofa4) {
     console.log("-- D. callback version (estrofa cuatro) --");
     if (err) magenta(err);
     else blue(estrofa4);
   });
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 }
 
 function problemE() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * E. Lee y loggea el poema uno estrofa tres y *DESPUES* lee y loggea la
-   *    estrofa cuatro o loggea un error si llegase a ocurrir para
-   *    cualquiera de las lecturas
+   * E. Leé y logueá, en versión Promesas, el poema-uno, estrofa-tres.
+   * Luego, leé y logueá la estrofa-cuatro o un error (si llegara a ocurrir) para cualquiera de las lecturas.
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
     console.log("-- E. callback version (estrofa tres) --");
     if (err) return magenta(err);
@@ -143,20 +143,20 @@ function problemE() {
     });
   });
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 }
 
 function problemF() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * F. Lee & loggea el poema uno estrofa tres y *DESPUES* lee y loguea la
-   *    estrofa cuatro o loggea un error si ocurre para cualquiera de las
-   *    lecturas y siempre loggea 'done' cuando todo haya terminado
+   * F. Leé y logueá, en versión Promesas, el poema-uno, estrofa-tres.
+   * Luego, leé y logueá la estrofa-cuatro o un error (si llegara a ocurrir) para cualquiera de las lecturas.
+   * *Recordá*: Siempre logueá 'done' al finalizar.
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
     console.log("-- F. callback version (estrofa tres) --");
     if (err) {
@@ -173,6 +173,6 @@ function problemF() {
     });
   });
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 }
