@@ -1,11 +1,12 @@
-/*********** Yo explico `exerciseUtils` ********
+/*********** Sobre `exerciseUtils` ********
  *
- * excersiceUtils es una variable que viene de un archivo en este repo
- * El archivo `./utils` esta en este nivel y se llama `utils.js`
+ * `excersiceUtils` es una Variable que viene de un archivo en este repo.
+ * 
+ * El archivo `utils.js` está en este nivel y crea un `promisifiedReadFile`.
  *
- * Este archivo crea un `promisifiedReadFile` - FIJATE EN ÉL!!!
+ * Es importante que te fijes en él a la hora de completar este Workshop.
  *
- * Las funciones `blue` y `magenta` para mantener tu código DRY
+ * Las Funciones `blue` y `magenta` sirven para mantener tu código DRY.
  *
  ***********************************************/
 
@@ -32,7 +33,7 @@ module.exports = {
   problemF: problemF,
 };
 
-// corre cada problema dado como un argumento del command-line para procesar
+// Itera sobre cada problema como argumento del command-line para luego ser procesado.
 args.forEach(function (arg) {
   const problem = module.exports["problem" + arg];
   if (problem) problem();
@@ -41,29 +42,29 @@ args.forEach(function (arg) {
 function problemA() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * A. loguea el poema uno estrofa uno (ignorá errores)
+   * A. Loguea el poema-uno, estrofa-uno (ignorá errores).
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/estrofa-01.txt", function (err, estrofa) {
     console.log("-- A. callback version --");
     blue(estrofa);
   });
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 }
 
 function problemB() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
-   * B. loggea el poema uno estrofa dos y tres, en cualquier orden
-   *    (ignora errores)
+   * B. Loguea el poema-uno, estrofa-dos y estrofa-tres, en cualquier orden
+   *    (ignorá errores)
    *
    */
 
-  // callback version
+  // Versión Callback
   readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
     console.log("-- B. callback version (estrofa dos) --");
     blue(estrofa2);
@@ -73,8 +74,8 @@ function problemB() {
     blue(estrofa3);
   });
 
-  // promise version
-  // ???
+  // Versión Promesas
+  // [Escribí tu código acá]
 }
 
 function problemC() {
