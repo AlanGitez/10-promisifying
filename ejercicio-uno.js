@@ -25,21 +25,21 @@ const Promise = require("bluebird"),
 });
 
 module.exports = {
-  problemA: problemA,
-  problemB: problemB,
-  problemC: problemC,
-  problemD: problemD,
-  problemE: problemE,
-  problemF: problemF,
+  problemaA: problemaA,
+  problemaB: problemaB,
+  problemaC: problemaC,
+  problemaD: problemaD,
+  problemaE: problemaE,
+  problemaF: problemaF,
 };
 
 // Itera sobre cada problema como argumento del command-line para luego ser procesado.
 args.forEach(function (arg) {
-  const problem = module.exports["problem" + arg];
-  if (problem) problem();
+  const problema = module.exports["problema" + arg];
+  if (problema) problema();
 });
 
-function problemA() {
+function problemaA() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * A. Logueá, en versión Promesas, el poema-uno, estrofa-uno. Ignorá errores.
@@ -56,7 +56,7 @@ function problemA() {
   // [Escribí tu código acá]
 }
 
-function problemB() {
+function problemaB() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * B. Logueá, en versión Promesas, el poema-uno, estrofa-dos y estrofa-tres, en cualquier orden. Ignorá errores.
@@ -78,7 +78,7 @@ function problemB() {
   // [Escribí tu código acá]
 }
 
-function problemC() {
+function problemaC() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * C. Leé y logueá, en versión Promesas, el poema-uno, estrofa-dos. Luego, leé y mostrá por consola
@@ -105,7 +105,7 @@ function problemC() {
   // *Tip*: No hace falta anidar los `.then`.
 }
 
-function problemD() {
+function problemaD() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * D. Logueá, en versión Promesas, el poema-uno, estrofa-cuatro o un error (si llegara a ocurrir).
@@ -123,7 +123,7 @@ function problemD() {
   // [Escribí tu código acá]
 }
 
-function problemE() {
+function problemaE() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * E. Leé y logueá, en versión Promesas, el poema-uno, estrofa-tres.
@@ -147,7 +147,7 @@ function problemE() {
   // [Escribí tu código acá]
 }
 
-function problemF() {
+function problemaF() {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *
    * F. Leé y logueá, en versión Promesas, el poema-uno, estrofa-tres.
