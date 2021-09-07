@@ -14,8 +14,8 @@ if (!utils.blue.__spy) {
 }
 
 const fs = require("fs");
-const exercise = require("./exercise-two");
-const dirpath = path.join(__dirname, "poem-two");
+const ejercicio = require("./ejercicio-dos");
+const dirpath = path.join(__dirname, "poema-dos");
 const estrofas = fs
   .readdirSync(dirpath)
   .filter(function (filename) {
@@ -25,7 +25,7 @@ const estrofas = fs
     return fs.readFileSync(path.join(dirpath, filename)).toString();
   });
 
-describe("exercise two (involving poem two)", function () {
+describe("Ejercicio dos (del poema-dos)", function () {
   beforeEach(function () {
     utils.resetSpy(blue);
     utils.resetSpy(magenta);
@@ -61,9 +61,9 @@ describe("exercise two (involving poem two)", function () {
     });
   }
 
-  describe("problemA", function () {
-    xit("loggea la estrofa uno y la estrofa dos en cualquier orden pero loggea 'done' cuando ambos hayan terminado (ignora errores)", function (done) {
-      exercise.problemA();
+  describe("problemaA", function () {
+    xit("loguea la estrofa uno y la estrofa dos en cualquier orden y loguea 'done' cuando ambos hayan terminado (ignora errores)", function (done) {
+      ejercicio.problemaA();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[0]);
         expect(blue).to.have.been.called.with(estrofas[1]);
@@ -76,13 +76,13 @@ describe("exercise two (involving poem two)", function () {
     });
   });
 
-  describe("problemB", function () {
-    xit("loguea todas las estrofasen cualquier orden y loggea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
+  describe("problemaB", function () {
+    xit("loguea todas las estrofas en cualquier orden y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
       this.timeout(3000);
-      exercise.problemB();
+      ejercicio.problemaB();
       setTimeout(function () {
-        estrofas.forEach(function (stanza) {
-          expect(blue).to.have.been.called.with(stanza);
+        estrofas.forEach(function (estrofa) {
+          expect(blue).to.have.been.called.with(estrofa);
         });
         const loggedDoneCalls = getLoggedDoneCalls();
         expect(loggedDoneCalls).to.have.length(1);
@@ -93,14 +93,14 @@ describe("exercise two (involving poem two)", function () {
     });
   });
 
-  describe("problemC", function () {
-    xit("loguea todas las estrofas en el poema dos, *en orden* y loggea 'done' cuando hayan terminado todas (ignorá errores)", function (done) {
+  describe("problemaC", function () {
+    xit("loguea todas las estrofas en el poema dos, *en orden* y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
       this.timeout(3000);
-      exercise.problemC();
+      ejercicio.problemaC();
       setTimeout(function () {
-        estrofas.forEach(function (stanza, index) {
+        estrofas.forEach(function (estrofa, index) {
           const callArgs = blueCalls[index];
-          expect(callArgs[0]).to.equal(stanza);
+          expect(callArgs[0]).to.equal(estrofa);
         });
         const loggedDoneCalls = getLoggedDoneCalls();
         expect(loggedDoneCalls).to.have.length(1);
@@ -111,10 +111,10 @@ describe("exercise two (involving poem two)", function () {
     });
   });
 
-  describe("problemD", function () {
-    xit("loguea todas las estrofas en el poema dos *en orden* asegurandote de fallar para cualquier error y logueando un 'done' cuando todas hayan terminado", function (done) {
+  describe("problemaD", function () {
+    xit("loguea todas las estrofas en el poema dos *en orden* asegurándose de capturar cualquier error y logueando 'done' cuando todas hayan terminado", function (done) {
       this.timeout(3000);
-      exercise.problemD();
+      ejercicio.problemaD();
       setTimeout(function () {
         blueCalls.forEach(function (callArgs, index) {
           expect(callArgs[0]).to.equal(estrofas[index]);
