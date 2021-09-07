@@ -14,8 +14,8 @@ if (!utils.__spy) {
   magenta = chai.spy.on(utils, "magenta");
 }
 
-const exercise = require("./exercise-one");
-const dirpath = path.join(__dirname, "poem-one");
+const exercise = require("./ejercicio-uno");
+const dirpath = path.join(__dirname, "poema-uno");
 const estrofas = fs
   .readdirSync(dirpath)
   .filter(function (filename) {
@@ -40,7 +40,7 @@ function getCall(spy, n) {
   return spy.__spy.calls[n] || [];
 }
 
-describe("exercise one (involving poem one)", function () {
+describe("Ejercicio uno (del poema-uno)", function () {
   beforeEach(function () {
     utils.resetSpy(blue);
     utils.resetSpy(magenta);
