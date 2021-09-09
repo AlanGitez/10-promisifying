@@ -14,7 +14,7 @@ if (!utils.blue.__spy) {
 }
 
 const fs = require("fs");
-const ejercicio = require("./ejercicio-dos");
+const ejercicio = require("./exercise-two");
 const dirpath = path.join(__dirname, "poema-dos");
 const estrofas = fs
   .readdirSync(dirpath)

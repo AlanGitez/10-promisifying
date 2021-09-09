@@ -47,7 +47,7 @@ function problemaA() {
    */
 
   // Versión Callback
-  readFile("poem-one/estrofa-01.txt", function (err, estrofa) {
+  readFile("poema-uno/estrofa-01.txt", function (err, estrofa) {
     console.log("-- A. callback version --");
     blue(estrofa);
   });
@@ -65,11 +65,11 @@ function problemaB() {
    */
 
   // Versión Callback
-  readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
+  readFile("poema-uno/estrofa-02.txt", function (err, estrofa2) {
     console.log("-- B. callback version (estrofa dos) --");
     blue(estrofa2);
   });
-  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+  readFile("poema-uno/estrofa-03.txt", function (err, estrofa3) {
     console.log("-- B. callback version (estrofa tres) --");
     blue(estrofa3);
   });
@@ -90,10 +90,10 @@ function problemaC() {
    */
 
   // Versión Callback
-  readFile("poem-one/estrofa-02.txt", function (err, estrofa2) {
+  readFile("poema-uno/estrofa-02.txt", function (err, estrofa2) {
     console.log("-- C. callback version (estrofa dos) --");
     blue(estrofa2);
-    readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+    readFile("poema-uno/estrofa-03.txt", function (err, estrofa3) {
       console.log("-- C. callback version (estrofa tres) --");
       blue(estrofa3);
       console.log("-- C. callback version done --");
@@ -113,7 +113,7 @@ function problemaD() {
    */
 
   // Versión Callback
-  readFile("poem-one/wrong-file-name.txt", function (err, estrofa4) {
+  readFile("poema-uno/wrong-file-name.txt", function (err, estrofa4) {
     console.log("-- D. callback version (estrofa cuatro) --");
     if (err) magenta(err);
     else blue(estrofa4);
@@ -132,11 +132,11 @@ function problemaE() {
    */
 
   // Versión Callback
-  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+  readFile("poema-uno/estrofa-03.txt", function (err, estrofa3) {
     console.log("-- E. callback version (estrofa tres) --");
     if (err) return magenta(err);
     blue(estrofa3);
-    readFile("poem-one/wrong-file-name.txt", function (err2, estrofa4) {
+    readFile("poema-uno/wrong-file-name.txt", function (err2, estrofa4) {
       console.log("-- E. callback version (estrofa cuatro) --");
       if (err2) return magenta(err2);
       blue(estrofa4);
@@ -157,7 +157,7 @@ function problemaF() {
    */
 
   // Versión Callback
-  readFile("poem-one/estrofa-03.txt", function (err, estrofa3) {
+  readFile("poema-uno/estrofa-03.txt", function (err, estrofa3) {
     console.log("-- F. callback version (estrofa tres) --");
     if (err) {
       magenta(err);
@@ -165,7 +165,7 @@ function problemaF() {
       return;
     }
     blue(estrofa3);
-    readFile("poem-one/wrong-file-name.txt", function (err2, estrofa4) {
+    readFile("poema-uno/wrong-file-name.txt", function (err2, estrofa4) {
       console.log("-- F. callback version (estrofa cuatro) --");
       if (err2) magenta(err2);
       else blue(estrofa4);
