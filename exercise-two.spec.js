@@ -62,7 +62,7 @@ describe("Ejercicio dos (del poema-dos)", function () {
   }
 
   describe("problemaA", function () {
-    xit("loguea la estrofa uno y la estrofa dos en cualquier orden y loguea 'done' cuando ambos hayan terminado (ignora errores)", function (done) {
+    it("loguea la estrofa uno y la estrofa dos en cualquier orden y loguea 'done' cuando ambos hayan terminado (ignora errores)", function (done) {
       ejercicio.problemaA();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[0]);
@@ -77,7 +77,7 @@ describe("Ejercicio dos (del poema-dos)", function () {
   });
 
   describe("problemaB", function () {
-    xit("loguea todas las estrofas en cualquier orden y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
+    it("loguea todas las estrofas en cualquier orden y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
       this.timeout(3000);
       ejercicio.problemaB();
       setTimeout(function () {
@@ -94,7 +94,7 @@ describe("Ejercicio dos (del poema-dos)", function () {
   });
 
   describe("problemaC", function () {
-    xit("loguea todas las estrofas en el poema dos, *en orden* y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
+    it("loguea todas las estrofas en el poema dos, *en orden* y loguea 'done' cuando todas hayan terminado (ignora errores)", function (done) {
       this.timeout(3000);
       ejercicio.problemaC();
       setTimeout(function () {
@@ -112,7 +112,7 @@ describe("Ejercicio dos (del poema-dos)", function () {
   });
 
   describe("problemaD", function () {
-    xit("loguea todas las estrofas en el poema dos *en orden* asegurándose de capturar cualquier error y logueando 'done' cuando todas hayan terminado", function (done) {
+    it("loguea todas las estrofas en el poema dos *en orden* asegurándose de capturar cualquier error y logueando 'done' cuando todas hayan terminado", function (done) {
       this.timeout(3000);
       ejercicio.problemaD();
       setTimeout(function () {

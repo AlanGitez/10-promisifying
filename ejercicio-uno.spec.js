@@ -53,7 +53,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
   });
 
   describe("problemaA", function () {
-    xit("loguea la primera estrofa", function (done) {
+    it("loguea la primera estrofa", function (done) {
       ejercicio.problemaA();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[0]);
@@ -63,7 +63,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
   });
 
   describe("problemaB", function () {
-    xit("loguea la estrofa dos y tres, en cualquier orden", function (done) {
+    it("loguea la estrofa dos y tres, en cualquier orden", function (done) {
       ejercicio.problemaB();
       setTimeout(function () {
         expect(blue).to.have.been.called.with(estrofas[1]);
@@ -75,7 +75,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
   });
 
   describe("problemaC", function () {
-    xit("loguea la estrofa dos y luego la estrofa tres", function (done) {
+    it("loguea la estrofa dos y luego la estrofa tres", function (done) {
       ejercicio.problemaC();
       setTimeout(function () {
         const firstCallArgs = blueCalls[0];
@@ -89,7 +89,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
   });
 
   describe("problemaD", function () {
-    xit("loguea la estrofa cuatro o un error si llegara a ocurrir", function (done) {
+    it("loguea la estrofa cuatro o un error si llegara a ocurrir", function (done) {
       ejercicio.problemaD();
       setTimeout(function () {
         const blueCalledWithStanza = getCall(blue, 0)[0] == estrofas[3];
@@ -105,7 +105,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
   });
 
   describe("problemaE", function () {
-    xit("loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas)", function (done) {
+    it("loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas)", function (done) {
       ejercicio.problemaE();
       setTimeout(function () {
         const bothSucceeded = blueCalls.length === 2;
@@ -149,7 +149,7 @@ describe("Ejercicio uno (del poema-uno)", function () {
       logList = [];
     });
 
-    xit(`loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas 
+    it(`loguea la estrofa tres y luego la estrofa cuatro o un error si llegara a ocurrir, para cualquiera de las lecturas 
     y siempre loguea 'done' cuando todo haya terminado`, function (done) {
       ejercicio.problemaF();
       setTimeout(function () {
